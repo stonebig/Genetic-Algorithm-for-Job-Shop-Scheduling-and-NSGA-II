@@ -17,7 +17,14 @@ import numpy as np
 import time
 import copy
 
-
+# In the context of scheduling and genetic algorithms, “tardiness” refers to the delay of a task beyond its due date or deadline1
+# cumulated tardiness=tardiness+w[total_chromosome[i][j]]*max(ptime-d[total_chromosome[i][j]],0)
+# the algorithm tris to minimise the total tardiness:
+# p = duration of a given task
+# w = impact of tardiness of a given task
+# d = desired latest delay  of a task
+# tardiness of a task = w * max(0, current start time of the task * d desired time_max) 
+# below we generate population_size of a random_sorting_of the 20 task (numbered 0 to 19), and do GA over it to approximate lowest total tardiness
 ''' ================= initialization setting ======================'''
 num_job=20 # number of jobs
 
